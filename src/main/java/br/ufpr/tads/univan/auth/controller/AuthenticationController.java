@@ -1,5 +1,9 @@
-package br.ufpr.tads.univan.auth.auth;
+package br.ufpr.tads.univan.auth.controller;
 
+import br.ufpr.tads.univan.auth.dto.AuthenticationRequest;
+import br.ufpr.tads.univan.auth.dto.AuthenticationResponse;
+import br.ufpr.tads.univan.auth.dto.CadastrarRequest;
+import br.ufpr.tads.univan.auth.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

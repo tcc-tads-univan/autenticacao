@@ -1,6 +1,6 @@
 package br.ufpr.tads.univan.auth.config;
 
-import br.ufpr.tads.univan.auth.usuario.UsuarioRepository;
+import br.ufpr.tads.univan.auth.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

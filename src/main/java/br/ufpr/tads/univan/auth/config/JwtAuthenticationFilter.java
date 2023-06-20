@@ -1,5 +1,6 @@
 package br.ufpr.tads.univan.auth.config;
 
+import br.ufpr.tads.univan.auth.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
+eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYWJyaWVsQG1haWwuY29tIiwiaWF0IjoxNjg2MDc5OTI0LCJleHAiOjE2ODYwODA4MjR9.L86B1dFnw5p1kqNgCtCR0oGGXMMiXX-N_hHdYbZZzA4
 import java.io.IOException;
 
 @Component

@@ -1,9 +1,11 @@
-package br.ufpr.tads.univan.auth.auth;
+package br.ufpr.tads.univan.auth.service;
 
-import br.ufpr.tads.univan.auth.config.JwtService;
-import br.ufpr.tads.univan.auth.usuario.Role;
-import br.ufpr.tads.univan.auth.usuario.Usuario;
-import br.ufpr.tads.univan.auth.usuario.UsuarioRepository;
+import br.ufpr.tads.univan.auth.dto.AuthenticationRequest;
+import br.ufpr.tads.univan.auth.dto.AuthenticationResponse;
+import br.ufpr.tads.univan.auth.dto.CadastrarRequest;
+import br.ufpr.tads.univan.auth.model.Perfil;
+import br.ufpr.tads.univan.auth.model.Usuario;
+import br.ufpr.tads.univan.auth.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,14 +26,13 @@ public class AuthenticationService {
                 .sobrenome(request.sobrenome())
                 .email(request.email())
                 .senha(passwordEncoder.encode(request.senha()))
-                .role(Role.ALUNO)
+                .perfil(Perfil.ALUNO)
                 .build();
 
         repository.save(usuario);
         var jwtToken = jwtService.gerarToken(usuario);
 
         return new AuthenticationResponse(jwtToken);
-
     }
 
     public AuthenticationResponse autenticar(AuthenticationRequest request) {

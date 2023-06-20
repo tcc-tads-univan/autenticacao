@@ -1,12 +1,10 @@
-package br.ufpr.tads.univan.auth.usuario;
+package br.ufpr.tads.univan.auth.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,24 +12,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Document
+@Entity
+@Table
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario implements UserDetails {
     @Id
-    private String id;
+    @GeneratedValue
+    private Long id;
+    @Column(name = "primeiroNome", nullable = false)
     private String primeiroNome;
+    @Column(name = "sobrenome", nullable = false)
     private String sobrenome;
-    @Indexed(unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(name = "senha", nullable = false)
     private String senha;
-    private Role role;
+    @Enumerated(EnumType.STRING)
+    private Perfil perfil;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(perfil.name()));
     }
 
     @Override

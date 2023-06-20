@@ -1,4 +1,4 @@
-package br.ufpr.tads.univan.auth.demo;
+package br.ufpr.tads.univan.auth.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
