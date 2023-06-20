@@ -20,13 +20,13 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse cadastrar(CadastrarRequest request) {
+    public AuthenticationResponse cadastrar(CadastrarRequest request, Perfil perfil) {
         var usuario = Usuario.builder()
-                .primeiroNome(request.primeiroNome())
-                .sobrenome(request.sobrenome())
+                .nome(request.nome())
+                .cpf(request.cpf())
                 .email(request.email())
                 .senha(passwordEncoder.encode(request.senha()))
-                .perfil(Perfil.ALUNO)
+                .perfil(perfil)
                 .build();
 
         repository.save(usuario);

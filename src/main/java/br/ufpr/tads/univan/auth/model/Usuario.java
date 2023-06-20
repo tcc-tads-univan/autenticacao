@@ -22,10 +22,10 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "primeiroNome", nullable = false)
-    private String primeiroNome;
-    @Column(name = "sobrenome", nullable = false)
-    private String sobrenome;
+    @Column(name = "nome", nullable = false)
+    private String nome;
+    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    private String cpf;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(name = "senha", nullable = false)

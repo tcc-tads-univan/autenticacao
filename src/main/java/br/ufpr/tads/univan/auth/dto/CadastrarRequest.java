@@ -1,8 +1,8 @@
 package br.ufpr.tads.univan.auth.dto;
 
 public record CadastrarRequest(
-        String primeiroNome,
-        String sobrenome,
+        String nome,
+        String cpf,
         String email,
         String senha
 ) {
